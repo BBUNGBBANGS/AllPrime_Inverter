@@ -39,7 +39,7 @@ static void Os_Background_Task(void)
 
 void Os_Time_Handler(void)
 {
-	Os_Var.Os_Counter.Os_1us_Counter++;
+	Os_Var.Os_Counter.Os_100us_Counter++;
 }
 
 void Os_Handler(void)
@@ -109,9 +109,9 @@ void Os_Handler_10ms(void)
 	}
 }
 
-uint32 Os_Get_Tick_1us(void)
+uint32 Os_Get_Tick_100us(void)
 {
-	return Os_Var.Os_Counter.Os_1us_Counter;
+	return Os_Var.Os_Counter.Os_100us_Counter;
 }
 
 static void Os_Calc_Period(uint8 idx)
@@ -120,7 +120,7 @@ static void Os_Calc_Period(uint8 idx)
 	uint32 OS_TimeOldLoc=0;
 	uint32 Os_TimeDiffLoc=0;
 
-	OS_TimeLoc = Os_Get_Tick_1us();
+	OS_TimeLoc = Os_Get_Tick_100us();
 
 	switch(idx)
 	{
@@ -161,7 +161,7 @@ static void Os_Calc_Runtime_Start(uint8 idx)
 {
 	uint32 OS_TimeLoc=0;
 
-	OS_TimeLoc = Os_Get_Tick_1us();
+	OS_TimeLoc = Os_Get_Tick_100us();
 
 	switch(idx)
 	{
@@ -185,7 +185,7 @@ static void Os_Calc_Runtime_Stop(uint8 idx)
 	uint32 OS_TimeOldLoc=0;
 	uint32 Os_TimeDiffLoc=0;
 
-	OS_TimeLoc = Os_Get_Tick_1us();
+	OS_TimeLoc = Os_Get_Tick_100us();
 
 	switch(idx)
 	{

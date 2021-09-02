@@ -56,7 +56,6 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern TIM_HandleTypeDef htim15;
 extern TIM_HandleTypeDef htim16;
 extern TIM_HandleTypeDef htim17;
 /* USER CODE BEGIN EV */
@@ -79,21 +78,6 @@ void NMI_Handler(void)
   {
   }
   /* USER CODE END NonMaskableInt_IRQn 1 */
-}
-
-/**
-  * @brief This function handles Hard fault interrupt.
-  */
-void HardFault_Handler(void)
-{
-  /* USER CODE BEGIN HardFault_IRQn 0 */
-
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
 }
 
 /**
@@ -132,17 +116,13 @@ void PendSV_Handler(void)
 /* USER CODE BEGIN 1 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    if(htim->Instance == TIM15)
+    if(htim->Instance == TIM17)
     {
         Os_Handler_10ms();
     }
     if(htim->Instance == TIM16)
     {
         Os_Time_Handler();
-    }
-    if(htim->Instance == TIM17)
-    {
-        Os_Handler_1ms();
     }
 }
 /* USER CODE END 1 */

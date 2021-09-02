@@ -2,7 +2,7 @@
 
 typedef struct
 {
-	uint32 Os_1us_Counter;
+	uint32 Os_100us_Counter;
 	uint32 Os_1ms_Counter;
 	uint32 Os_10ms_Counter;
 	uint32 Os_100ms_Counter;
@@ -79,7 +79,7 @@ typedef struct
 extern void Os_Init_Task(void);
 extern void Os_Handler(void);
 extern void Os_Calc_timer(uint8 idx);
-extern uint32 Os_Get_Tick_1us(void);
+extern uint32 Os_Get_Tick_100us(void);
 extern void Os_Time_Handler(void);
 extern void Os_Handler_1ms(void);
 extern void Os_Handler_10ms(void);
